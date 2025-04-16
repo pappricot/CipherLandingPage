@@ -222,3 +222,19 @@ const initAnimation = () => {
 };
 
 initAnimation();
+
+// Contact Form Submission Logic
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      
+      const subject = `Contact Form Submission from ${name}`;
+      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      
+      window.location.href = `mailto:anya.p.nguyen@gmail.com?subject=${subject}&body=${body}`;
+    });
+  });
