@@ -49,7 +49,7 @@
     margin: 0 auto 1.5rem;
   }
   
-  button, a.cta {
+  a.cta, a.button {
     background-color: #FFFFFF;
     color: rgb(87, 86, 87);
     padding: 0.75rem 1.5rem;
@@ -61,6 +61,12 @@
     cursor: pointer;
   }
   
+  .button {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+  }
+
   .submit {
     background-color: #000000;
     color: #FFFFFF;
@@ -225,6 +231,62 @@
     background: #EDEDED;
   }
   
+  #getting-started {
+    background: #EDEDED;
+  }
+  
+  #getting-started ol {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  #getting-started li {
+    margin-bottom: 1rem;
+  }
+
+  #getting-started .code-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  #getting-started pre {
+    background: #FFFFFF;
+    padding: 0.5rem;
+    border: 1px solid rgb(87, 86, 87);
+    border-radius: 4px;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  #getting-started code {
+    font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
+    font-size: 14px;
+  }
+  
+  #getting-started .copy-btn {
+    position: relative;
+    bottom: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    color: rgb(87, 86, 87);
+    font-family: Inter, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    font-size: 10px;
+  }
+  
+  #getting-started .copy-btn:hover {
+    color: #66CCFF;
+  }
+
   #contact-me form {
     display: flex;
     flex-direction: column;

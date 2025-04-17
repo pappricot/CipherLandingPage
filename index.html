@@ -18,7 +18,7 @@
     <nav class="nav-menu">
       <a href="#home">Home</a>
       <a href="#why-offline-first">Why Offline-First?</a>
-      <!-- <a href="[your-portfolio-url]" target="_blank">About</a> -->
+      <a href="#getting-started">Getting Started</a>
       <a href="#contact-me">Contact Me</a>
     </nav>
   </header>
@@ -27,10 +27,9 @@
     <h1>Cipher.</h1>
     <p>Privacy-first tool to process your text locally on any device.</p>
     <div class="header-btns">
-      <button onclick="trackDownload()">Download Now</button>
-      <button class="black" onclick="trackDownload()">Download Offline</button>
+        <a href="https://github.com/pappricot/cipher" target="_blank" class="button">Download from GitHub (Source Code)</a>
     </div>
-    <a href="#why-offline-first" class="learn-more">or Learn More</a>
+    <a href="#getting-started" class="learn-more">Get Started</a>
     <img class="mockup-image" src="type-800.webp" alt="Cipher application mockup" loading="lazy">
   </section>
 
@@ -58,10 +57,46 @@
     <p>Built with privacy in mind, inspired by the local-first movement for secure, user-controlled apps.</p>
   </section>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About the Creator</h2>
-    <p>Created by Phokus. Check out my portfolio for more projects.</p>
-    <a href="https://github.com/pappricot" target="_blank" class="cta">View My Portfolio</a>
+  <section id="getting-started" data-aos="fade-up">
+    <h2>Getting Started</h2>
+    <p>Follow these steps to run Cipher on your device:</p>
+    <ol>
+      <li><strong>Clone the Repository</strong><br>
+        Use Git to clone the Cipher repository:
+        <div class="code-block">
+          <pre><code>git clone https://github.com/pappricot/cipher.git</code></pre>
+          <button class="copy-btn" data-clipboard-text="git clone https://github.com/pappricot/cipher.git">📋</button>
+        </div>
+        Then navigate to the project directory:
+        <div class="code-block">
+          <pre><code>cd cipher</code></pre>
+          <button class="copy-btn" data-clipboard-text="cd cipher">📋</button>
+        </div>
+      </li>
+      <li><strong>Install Dependencies</strong><br>
+        Install the required Python packages:
+        <div class="code-block">
+          <pre><code>pip install -r requirements.txt</code></pre>
+          <button class="copy-btn" data-clipboard-text="pip install -r requirements.txt">📋</button>
+        </div>
+      </li>
+      <li><strong>Download Language Models</strong><br>
+        Run the setup script to download necessary models (requires internet for first-time setup):
+        <div class="code-block">
+          <pre><code>python setup_models.py</code></pre>
+          <button class="copy-btn" data-clipboard-text="python setup_models.py">📋</button>
+        </div>
+        Models are stored locally after download and used offline thereafter.
+      </li>
+      <li><strong>Run Cipher</strong><br>
+        Start the application:
+        <div class="code-block">
+          <pre><code>python main.py</code></pre>
+          <button class="copy-btn" data-clipboard-text="python main.py"><span class="emoji">📋</span></button>
+        </div>
+      </li>
+    </ol>
+    <p><strong>Notes:</strong> Ensure you have Python 3.11+ and Git installed. For advanced users, optional Docker instructions are available in the <a href="https://github.com/pappricot/cipher/blob/main/README.md" target="_blank">GitHub README</a>.</p>
   </section>
 
   <section id="contact-me" data-aos="fade-up">
@@ -82,6 +117,7 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <!-- Comment out Plausible Analytics script for local development -->
   <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

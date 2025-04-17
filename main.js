@@ -8,13 +8,6 @@ const toggleMenu = () => {
 
 document.querySelector('.hamburger').addEventListener('click', toggleMenu);
 
-// Track downloads with Plausible Analytics
-const trackDownload = () => {
-  // Comment out Plausible tracking for local development
-  // plausible('Download', { props: { tool: 'Cipher' } });
-  window.location.href = '/path/to/cipher.tar';
-};
-
 // Fetch and display the download count (commented out for local development)
 /*
 const fetchDownloadCount = () => {
@@ -224,17 +217,38 @@ const initAnimation = () => {
 initAnimation();
 
 // Contact Form Submission Logic
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const name = encodeURIComponent(document.getElementById('name').value.trim());
-      const email = encodeURIComponent(document.getElementById('email').value.trim());
-      const message = encodeURIComponent(document.getElementById('message').value.trim());
-      
-      const subject = `Contact Form Submission from ${name}`;
-      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-      
-      window.location.href = `mailto:anya.p.nguyen@gmail.com?subject=${subject}&body=${body}`;
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = encodeURIComponent(document.getElementById("name").value.trim());
+        const email = encodeURIComponent(document.getElementById("email").value.trim());
+        const message = encodeURIComponent(document.getElementById("message").value.trim());
+
+        const subject = `Contact Form Submission from ${name}`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+
+        window.location.href = `mailto:anya.p.nguyen@gmail.com?subject=${subject}&body=${body}`;
+      });
+    } else {
+      console.warn("Contact form not found.");
+    }
+  } catch (error) {
+    console.error("Error setting up contact form:", error);
+  }
+
+   // Initialize ClipboardJS and handle copy feedback
+   new ClipboardJS('.copy-btn');
+   document.querySelectorAll('.copy-btn').forEach(button => {
+     button.addEventListener('click', function() {
+       const originalContent = button.innerHTML;
+       button.innerHTML = '<span class="emoji">✅</span> Copied!';
+       setTimeout(() => {
+         button.innerHTML = originalContent;
+       }, 2000);
+     });
+   });
+});
