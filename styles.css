@@ -268,23 +268,27 @@
   
   #getting-started .copy-btn {
     position: relative;
-    bottom: 15px;
+    bottom: 20px;
     right: 15px;
     background: none;
     border: none;
-    font-size: 1rem;
     cursor: pointer;
-    padding: 0.25rem 0.5rem;
+    padding: 0.1rem 0.1rem;
     color: rgb(87, 86, 87);
     font-family: Inter, Arial, sans-serif;
     display: flex;
     align-items: center;
     z-index: 1;
-    font-size: 10px;
+    font-size: 20px;
+
   }
-  
-  #getting-started .copy-btn:hover {
-    color: #66CCFF;
+
+  #getting-started .emoji {
+    position: relative;
+    left: 10px;
+    color: rgb(87, 86, 87);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 15px;
   }
 
   #contact-me form {

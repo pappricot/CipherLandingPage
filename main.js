@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
    document.querySelectorAll('.copy-btn').forEach(button => {
      button.addEventListener('click', function() {
        const originalContent = button.innerHTML;
-       button.innerHTML = '<span class="emoji">✅</span> Copied!';
+       button.innerHTML = '<span class="emoji">Copied!</span>';
        setTimeout(() => {
          button.innerHTML = originalContent;
        }, 2000);
