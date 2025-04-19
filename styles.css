@@ -19,23 +19,27 @@
   }
   
   h1, h2 {
-    font-family: "Times New Roman", serif;
-    font-style: normal;
+    font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
+    font-style:normal;
     font-weight: 400;
     color: rgb(87, 86, 87);
     letter-spacing: 0.05em;
   }
   
   h1 {
-    font-size: 40px;
+    size: 40px;
     line-height: 40px;
-    margin-bottom: 1rem;
   }
   
   h2 {
     font-size: 2.25rem;
     line-height: 2.25rem;
     margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
   }
   
   p {
@@ -50,8 +54,8 @@
   }
   
   a.cta, a.button {
-    background-color: #FFFFFF;
-    color: rgb(87, 86, 87);
+    background-color: #000000;
+    color: #FFFFFF;
     padding: 0.75rem 1.5rem;
     border: 1px solid rgb(87, 86, 87);
     font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
@@ -59,12 +63,14 @@
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    text-transform: uppercase;
   }
   
   .button {
     background-color: #000000;
     color: #FFFFFF;
     border: none;
+    text-transform: uppercase;
   }
 
   .submit {
@@ -177,6 +183,7 @@
     color: rgb(87, 86, 87);
     text-decoration: underline;
     text-transform: uppercase;
+    margin-top: -20px;
   }
   
   #home .mockup-image {
@@ -204,7 +211,7 @@
     text-align: center;
   }
   
-  #quotes .quote-box h3 {
+  #quotes .quote-box {
     font-family: "Times New Roman", serif;
     font-style: normal;
     font-weight: 400;
@@ -228,7 +235,11 @@
   
   /* Sections */
   #why-offline-first {
-    background: #EDEDED;
+    background: #000000;
+  }
+
+  #why-offline-first > h3, #why-offline-first > p {
+    color: #FFFFFF;
   }
   
   #getting-started {
@@ -243,6 +254,8 @@
   
   #getting-started li {
     margin-bottom: 1rem;
+    font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
+    font-weight: 400;
   }
 
   #getting-started .code-block {
@@ -320,7 +333,7 @@
   /* Extra small screens (up to 500px) - Stack all quote boxes in three rows */
   @media (max-width: 500px) {
     h1 { font-size: 1.75rem; }
-    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.25rem; }
     p { font-size: 0.75rem; }
     button, a.cta { padding: 0.5rem 1rem; font-size: 0.875rem; }
     section { padding: 1.5rem 1rem; }
@@ -340,15 +353,16 @@
   /* Small screens (501px to 960px) - Two rows: first two boxes in first row, last box in second row */
   @media (min-width: 501px) and (max-width: 960px) {
     h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.5rem; }
     p { font-size: 0.875rem; }
     button, a.cta { padding: 0.5rem 1rem; font-size: 1rem; }
-    section { padding: 2rem 1rem; }
+    section { padding: 2.5rem }
     #home .mockup-image { max-width: 70%; }
   
     #quotes .carousel {
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: -150px;
     }
   
     #quotes .quote-box {
@@ -367,7 +381,7 @@
   @media (min-width: 961px) and (max-width: 1200px) {
     section { padding: 3rem 1.5rem; }
     h1 { font-size: 36px; }
-    h2 { font-size: 2rem; }
+    h3 { font-size: 2rem; }
     #home .mockup-image { max-width: 700px; }
   }
   
@@ -391,6 +405,7 @@
       justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
+      margin-top: -350px;
     }
   
     #contact-me form {
