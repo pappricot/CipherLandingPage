@@ -304,6 +304,11 @@
     font-size: 15px;
   }
 
+  .scrollable {
+    max-width: 600px; 
+    overflow-x: auto; 
+    white-space: nowrap;
+  }
   #contact-me form {
     display: flex;
     flex-direction: column;

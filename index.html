@@ -75,30 +75,73 @@
           <button class="copy-btn" data-clipboard-text="cd cipher"> 📄</button>
         </div>
       </li>
-      <li><strong>Install Dependencies</strong><br>
-        Install the required Python packages:
+      <li><strong>Set Up the Python Backend</strong><br>
+        Create and activate a Conda environment:
+        <div class="code-block">
+          <pre><code>conda create -n cipher python=3.11</code></pre>
+          <button class="copy-btn" data-clipboard-text="conda create -n cipher python=3.11"> 📄</button>
+        </div>
+        <div class="code-block">
+          <pre><code>conda activate cipher</code></pre>
+          <button class="copy-btn" data-clipboard-text="conda activate cipher"> 📄</button>
+        </div>
+        Install Python dependencies (press [y] yes on following questions):
         <div class="code-block">
           <pre><code>pip install -r requirements.txt</code></pre>
           <button class="copy-btn" data-clipboard-text="pip install -r requirements.txt"> 📄</button>
         </div>
       </li>
       <li><strong>Download Language Models</strong><br>
-        Run the setup script to download necessary models (requires internet for first-time setup):
+        Download the required models (requires internet, ~1.5GB disk space):
         <div class="code-block">
-          <pre><code>python setup_models.py</code></pre>
-          <button class="copy-btn" data-clipboard-text="python setup_models.py"> 📄</button>
+          <div class="scrollable">
+            <pre><code>python -c "from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer; M2M100ForConditionalGeneration.from_pretrained('facebook/m2m100_418M').save_pretrained('./models/m2m100_418M'); M2M100Tokenizer.from_pretrained('facebook/m2m100_418M').save_pretrained('./models/m2m100_418M')"</code></pre>
+          </div>
+          <button class="copy-btn" data-clipboard-text="python -c &quot;from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer; M2M100ForConditionalGeneration.from_pretrained('facebook/m2m100_418M').save_pretrained('./models/m2m100_418M'); M2M100Tokenizer.from_pretrained('facebook/m2m100_418M').save_pretrained('./models/m2m100_418M')&quot;"> 📄</button>
+        </div>
+        <div class="code-block">
+          <div class="scrollable">
+            <pre><code>python -c "from transformers import T5ForConditionalGeneration, T5Tokenizer; T5ForConditionalGeneration.from_pretrained('t5-small').save_pretrained('./models/t5-small'); T5Tokenizer.from_pretrained('t5-small').save_pretrained('./models/t5-small')"</code></pre>
+          </div>
+          <button class="copy-btn" data-clipboard-text="python -c &quot;from transformers import T5ForConditionalGeneration, T5Tokenizer; T5ForConditionalGeneration.from_pretrained('t5-small').save_pretrained('./models/t5-small'); T5Tokenizer.from_pretrained('t5-small').save_pretrained('./models/t5-small')&quot;"> 📄</button>
         </div>
         Models are stored locally after download and used offline thereafter.
       </li>
-      <li><strong>Run Cipher</strong><br>
-        Start the application:
+      <li><strong>Set Up the Frontend</strong><br>
+        Navigate to the frontend directory and install Node.js dependencies:
         <div class="code-block">
-          <pre><code>python main.py</code></pre>
-          <button class="copy-btn" data-clipboard-text="python main.py"><span class="emoji"> 📄</span></button>
+          <pre><code>cd frontend</code></pre>
+          <button class="copy-btn" data-clipboard-text="cd frontend"> 📄</button>
+        </div>
+        <div class="code-block">
+          <pre><code>npm install</code></pre>
+          <button class="copy-btn" data-clipboard-text="npm install"> 📄</button>
+        </div>
+        <div class="code-block">
+          <pre><code>cd ..</code></pre>
+          <button class="copy-btn" data-clipboard-text="cd .."> 📄</button>
         </div>
       </li>
+      <li><strong>Run Cipher</strong><br>
+        Ensure the `run.sh` script is executable:
+        <div class="code-block">
+          <pre><code>chmod +x run.sh</code></pre>
+          <button class="copy-btn" data-clipboard-text="chmod +x run.sh"> 📄</button>
+        </div>
+        Start the application:
+        <div class="code-block">
+          <pre><code>bash run.sh</code></pre>
+          <button class="copy-btn" data-clipboard-text="bash run.sh"> 📄</button>
+        </div>
+        On Windows, use `run.bat` instead:
+        <div class="code-block">
+          <pre><code>run.bat</code></pre>
+          <button class="copy-btn" data-clipboard-text="run.bat"> 📄</button>
+        </div>
+        Access the app in your browser at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.
+      </li>
     </ol>
-    <p><strong>Notes:</strong> Ensure you have Python 3.11+ and Git installed. For advanced users, optional Docker instructions are available in the <a href="https://github.com/pappricot/cipher/blob/main/README.md" target="_blank">GitHub README</a>.</p>
+    <p><strong>Notes:</strong> Requires Miniconda, Python 3.11+ (managed by Conda), Node.js v20.12.0+, and Git installed. If port 5000 is in use, change the port in <code>server.py</code> (e.g., to 5001) and update <code>frontend/src/App.js</code> accordingly. For advanced users, Docker support is planned; see the <a href="https://github.com/pappricot/cipher/blob/main/README.md" target="_blank">GitHub README</a> for details.</p>
   </section>
 
   <section id="contact-me" data-aos="fade-up">
