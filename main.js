@@ -218,26 +218,44 @@ initAnimation();
 
 // Contact Form Submission Logic
 document.addEventListener("DOMContentLoaded", () => {
-  try {
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+  const contactForm = document.getElementById("contact-form");
+  const formMessage = document.getElementById("form-message");
 
-        const name = encodeURIComponent(document.getElementById("name").value.trim());
-        const email = encodeURIComponent(document.getElementById("email").value.trim());
-        const message = encodeURIComponent(document.getElementById("message").value.trim());
+  if (contactForm && formMessage) {
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
 
-        const subject = `Contact Form Submission from ${name}`;
-        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      // Disable submit button to prevent multiple submissions
+      const submitButton = contactForm.querySelector(".submit");
+      submitButton.disabled = true;
+      formMessage.textContent = "Sending...";
+      formMessage.className = "form-message";
 
-        window.location.href = `mailto:anya.p.nguyen@gmail.com?subject=${subject}&body=${body}`;
-      });
-    } else {
-      console.warn("Contact form not found.");
-    }
-  } catch (error) {
-    console.error("Error setting up contact form:", error);
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        });
+
+        if (response.ok) {
+          formMessage.textContent = "Message sent successfully!";
+          formMessage.className = "form-message success";
+          contactForm.reset(); // Clear form
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        formMessage.textContent = "Failed to send message. Please try again.";
+        formMessage.className = "form-message error";
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  } else {
+    console.warn("Contact form or message container not found.");
   }
 
    // Initialize ClipboardJS and handle copy feedback

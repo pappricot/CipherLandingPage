@@ -58,6 +58,21 @@
     <p>Built with privacy in mind, inspired by the local-first movement for secure, user-controlled apps.</p>
   </section>
 
+  <section id="demo">
+    <h3>Quick Demo</h3>
+    <p>Let's translate and summarize a snippet of <strong class="movie-title"><a href="https://imsdb.com/scripts/Brutalist,-The.html">The Brutalist</a></strong> script to Italian</p>
+    <div class="demo-videos">
+      <video class="demo-video" poster="videos/translation.jpg" controls playsinline preload="metadata">
+        <source src="videos/translation.mp4" type="video/mp4">
+        <img src="videos/translation.jpg" alt="Cipher translation demo video fallback">
+      </video>
+      <video class="demo-video" poster="videos/summary.jpg" controls playsinline preload="metadata">
+        <source src="videos/summary.mp4" type="video/mp4">
+        <img src="videos/summary.jpg" alt="Cipher summarization video fallback">
+      </video>
+    </div>
+  </section>
+
   <section id="getting-started" data-aos="fade-up">
     <h3>Getting Started</h3>
     <p>Follow these steps to run Cipher on your device:</p>
@@ -146,11 +161,13 @@
 
   <section id="contact-me" data-aos="fade-up">
     <h3>Contact Me</h3>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
+    <form id="contact-form" name="contact" netlify>
+      <input type="hidden" name="form-name" value="contact">
+      <input type="text" id="name" name="name" placeholder="Name" required>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <textarea id="message" name="message" placeholder="Message" required></textarea>
       <button class="submit" type="submit">SEND</button>
+      <div id="form-message" class="form-message"></div>
     </form>
   </section>
 

@@ -74,10 +74,12 @@
   }
 
   .submit {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: violet;
+    color: #000;
+    border: none;
     font-family: "IBM Plex Mono", "Andale Mono", sans-serif;
     font-size: 1.125rem;
+    font-weight: 800;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -241,7 +243,27 @@
   #why-offline-first > h3, #why-offline-first > p {
     color: #FFFFFF;
   }
-  
+
+  .movie-title {
+    text-decoration: underline;
+    font-style: italic;
+  }
+  #demo {
+    background-color:palegreen;
+  }
+
+  .demo-videos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+  }
+
+  .demo-video {
+    max-width: 50%;
+    margin: 2px
+  }
+
   #getting-started {
     background: #EDEDED;
   }
@@ -322,6 +344,21 @@
     background: #FFFFFF;
     border: 1px solid rgb(87, 86, 87);
     color: rgb(87, 86, 87);
+  }
+  #contact-me .form-message {
+    margin-top: 1rem;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(87, 86, 87);
+  }
+  
+  #contact-me .form-message.success {
+    color: #2e7d32; /* Green for success */
+  }
+  
+  #contact-me .form-message.error {
+    color: #d32f2f; /* Red for error */
   }
   
   footer {
